@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class ShowNumClient{
+    
+        public static void main(String args[]){
+        Scanner in = new Scanner(System.in);    
+        //Creates an object named rc of class ShowNum
+        ShowNum rc = new ShowNum();
+        
+        // Asks user for input
+        System.out.println("Enter a number (Enter -1 to exit):");
+        int numberOfRows = in.nextInt();
+        rc.setnumberOfRows(numberOfRows);
+        // Checks to see if -1 entered, if so exit program.   
+        if (numberOfRows == -1){
+            System.out.println("Thanks for playing, Goodbye!");
+            java.lang.System.exit(0);
+        }
+        // Verifies first number is between 1 & 30, if not try again
+        if (numberOfRows < 1 || numberOfRows > 30){
+            System.out.println("Number must be between 1 and 30");
+            numberOfRows = in.nextInt();
+            rc.setnumberOfRows(numberOfRows);
+        }
+
+                    
+        System.out.println("Enter another number (Enter -1 to exit):");
+        int numberOfColumns = in.nextInt();
+        rc.setnumberOfColumns(numberOfColumns);
+        // Checks to see if -1 entered, if so exit program. 
+        if (numberOfColumns == -1){
+            System.out.println("Thanks for playing, Goodbye!");
+            java.lang.System.exit(0);}
+        // Verifies second number is between 1 & 30, if not try again
+        if (numberOfColumns < 1 || numberOfColumns > 30){
+            System.out.println("Number must be between 1 and 30");
+            numberOfColumns = in.nextInt();
+            rc.setnumberOfColumns(numberOfColumns);}
+
+        
+        // Display first number entered, followed by second number entered
+        System.out.println("Input: " + rc.getnumberOfRows() + "," + rc.getnumberOfColumns());
+        // Call method from ShowNum class, displays rows and columns to screen
+        rc.display();
+    
+  }
+}
