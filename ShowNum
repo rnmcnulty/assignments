@@ -1,47 +1,62 @@
-import java.util.Scanner;
 
-public class ShowNumClient{
-    
-        public static void main(String args[]){
-        Scanner in = new Scanner(System.in);    
-        //Creates an object named rc of class ShowNum
-        ShowNum rc = new ShowNum();
-        
-        // Asks user for input
-        System.out.println("Enter a number (Enter -1 to exit):");
-        int numberOfRows = in.nextInt();
-        rc.setnumberOfRows(numberOfRows);
-        // Checks to see if -1 entered, if so exit program.   
-        if (numberOfRows == -1){
-            System.out.println("Thanks for playing, Goodbye!");
-            java.lang.System.exit(0);
+public class ShowNum {
+
+    //Declaration of instance variables
+    private int numberOfRows, numberOfColumns;
+
+    // Default Constructor
+    public ShowNum() {
+    }
+
+    // Overloaded Constructor
+    public ShowNum(int row, int col) {
+        numberOfRows = row;
+        numberOfColumns = col;
+    }
+
+    // Setters and Getters for instance variable numberOfRows
+    public void setnumberOfRows(int row) {
+        numberOfRows = row;
+    }
+
+    public int getnumberOfRows() {
+        return numberOfRows;
+    }
+
+    // Setters and Getters for instance variable numberOfColumns
+    public void setnumberOfColumns(int col) {
+        numberOfColumns = col;
+    }
+
+    public int getnumberOfColumns() {
+        return numberOfColumns;
+    }
+
+    // Cleaner and shorter version of for loop, method which displays asterisks
+    public void display() {
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int col = 0; col < numberOfColumns; col++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
-        // Verifies first number is between 1 & 30, if not try again
-        if (numberOfRows < 1 || numberOfRows > 30){
-            System.out.println("Number must be between 1 and 30");
-            numberOfRows = in.nextInt();
-            rc.setnumberOfRows(numberOfRows);
-        }
-
-                    
-        System.out.println("Enter another number (Enter -1 to exit):");
-        int numberOfColumns = in.nextInt();
-        rc.setnumberOfColumns(numberOfColumns);
-        // Checks to see if -1 entered, if so exit program. 
-        if (numberOfColumns == -1){
-            System.out.println("Thanks for playing, Goodbye!");
-            java.lang.System.exit(0);}
-        // Verifies second number is between 1 & 30, if not try again
-        if (numberOfColumns < 1 || numberOfColumns > 30){
-            System.out.println("Number must be between 1 and 30");
-            numberOfColumns = in.nextInt();
-            rc.setnumberOfColumns(numberOfColumns);}
-
-        
-        // Display first number entered, followed by second number entered
-        System.out.println("Input: " + rc.getnumberOfRows() + "," + rc.getnumberOfColumns());
-        // Call method from ShowNum class, displays rows and columns to screen
-        rc.display();
-    
-  }
+    }
 }
+
+// Below methods used to make more sense of what is happening.
+/*
+    public void display() {
+        for(int row = 0; row < numberOfRows; row++) {
+            printRow();
+            System.out.println(); 
+            }
+        }
+       
+    public void printRow() {
+        for(int column = 0; column < numberOfColumns; column++) {
+           System.out.print("*");
+        }
+ */
+
+    
+    
